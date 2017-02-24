@@ -19,9 +19,9 @@ It also includes the following folders:
 - nusmvSpec: contains temporary files with the NuSMV code that the software generates automatically
 - results: to save results from experiments
 
-And:
 
-- NuSMV, a software to model check temporal specifications, downloaded from http://nusmv.fbk.eu/
+To run the software, the model checking tool NuSMV (http://nusmv.fbk.eu/) is required. NuSMV is open source software distributed under the LGPL v2.1 license (http://nusmv.fbk.eu/open_nusmv/lgpl2.1.txt). We include a binary for Linux 64bits. Binaries for other systems or the source code can be obtained from their webpage.
+
 
 ########### The EXAMPLE ##########
 
