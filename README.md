@@ -37,7 +37,7 @@ It accepts 3 parameters:
 
 * -v is the size of the vocabulary. We recommend vocabularies of up to 10 words to keep the running time reasonable for a demo. Defaults to 4.
 
-* -p is the size of the protocol. We recommend protocols of a size similar to the words to see interesting results. Defaults to 8.
+* -p is the size of the protocol. We recommend protocols of a size between the vocabulary size and 12 to the words to see interesting results. Defaults to 8.
 
 * -b determines the verbosity, which can be 0 or 1. If it is 0 it shows only the minimal information described before. Verbosity 1 is designed for debugging and analysis purposes, and it shows the dynamics of the interaction and the agent's alignments in each step. If using 1, we recommend directing the output to another file to improve readability. Defaults to 0. 
 
