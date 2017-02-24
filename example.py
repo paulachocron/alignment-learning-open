@@ -71,7 +71,6 @@ def main(argv):
 	resa0 = res[0][0]
 	resa1 = res[0][1]
 	tline = [str(x) for x in range(inters)]
-	print resa0
 	ag1, = plt.plot(tline,[(fscore(resa0)[i]+fscore(resa1)[i])/2.0 for i in range(inters)], 'b-')
 	sns.set_style("white")
 	plt.legend(loc = 'best', fontsize=18)

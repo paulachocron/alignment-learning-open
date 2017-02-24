@@ -25,22 +25,20 @@ And:
 
 ########### The EXAMPLE ##########
 
-The example shows two agents learning an alignment between their vocabularies by interacting with each other. Agents creat
+The example shows two agents learning an alignment between their vocabularies by interacting with each other. 
 
-First protocols are generated, and then agents start interacting with each other. The example prints the number agents needed to converge to a perfect alignment between their vocabulary.
+When the example is generated, first it generates a vocabulary and a set of protocols. Then it starts the learning experiment, that lets agents interact at most 200 times. This experiment is executed 5 times. The example prints the number of interactions that agents needed to converge to a perfect alignment between their vocabularies.
 
-The example lets agents interact 200 times at most, and repeats the experiment 5 times.
-	
 To execute the example, call 
 
- --------------   python example.py [-v -p -b -s] --------------
+ --------------   python example.py [-v -p -b] --------------
 
-It accepts 5 parameters:
+It accepts 3 parameters:
 
-* - v is the size of the vocabulary. We recommend vocabularies of up to 10 words to keep the running time reasonable for a demo. Defaults to 4.
+* -v is the size of the vocabulary. We recommend vocabularies of up to 10 words to keep the running time reasonable for a demo. Defaults to 4.
 
-* - p is the size of the protocol. We recommend protocols of a size similar to the words to see interesting results. Defaults to 8.
+* -p is the size of the protocol. We recommend protocols of a size similar to the words to see interesting results. Defaults to 8.
 
-* -b determines the verbosity, which can be 0 or 1. If it is 0 it shows only the minimal information described before. Verbosity 1 is designed for debugging and analysis purposes, and it shows the dynamics of the interaction and the agent's alignments in each step. If using 1, we recommend directing the output to another file to increase readability. Defaults to 0. 
+* -b determines the verbosity, which can be 0 or 1. If it is 0 it shows only the minimal information described before. Verbosity 1 is designed for debugging and analysis purposes, and it shows the dynamics of the interaction and the agent's alignments in each step. If using 1, we recommend directing the output to another file to improve readability. Defaults to 0. 
 
-The results of the experiment are saved in the folder /results, in a file named "res-*voc*-*prot*"
+The results of the experiment are saved in the folder /results, in a file named "res-*voc*-*prot*". The experiment and shows produces a plot of the results.
