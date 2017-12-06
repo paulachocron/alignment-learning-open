@@ -769,19 +769,15 @@ def experimentAgents(outiter, initer, int, vocab, prot, agents, hetp=None, hetr=
 				print "Agent {}".format(ag)
 				print "\n Iteration: {} : {}".format(o, i)
 
-
 				if ag=='simple':	
 					a0 = Simple(0, v0, param, dist={})
 					a1 = Simple(1, v1,  param, dist={})
 				if ag=='reasoner':	
 					a0 = Reasoner(0, v0, dist={})
 					a1 = Reasoner(1, v1, dist={})
-
 				if ag=='student':	
 					a0 = Student(0, v0)
 					a1 = Student(1, v1)
-					# a0 = Student(0, v0, dist={"o":0.4, "s":0.3, "x":0.2, "z":0.1})
-					# a1 = Student(1, v1, dist={"o1":0.4, "s1":0.3, "x1":0.2, "z1":0.1})	
 				if ag=='studentcoop':	
 					a0 = StudentCoop(0, v0)
 					a1 = StudentCoop(1, v1)			
@@ -792,13 +788,9 @@ def experimentAgents(outiter, initer, int, vocab, prot, agents, hetp=None, hetr=
 					a0 = StudentR(0, v0)
 					a1 = StudentR(1, v1)
 
-
-
 				elif ag=='simplebound':	
 					a0 = SimpleBound(0, v0, mons, param, dist={})
 					a1 = SimpleBound(1, v1, mons, param, dist={})	
-					# a0 = Simple(0, v0, param, dist={"o":0.4, "s":0.3, "x":0.2, "z":0.1})
-					# a1 = Simple(1, v1, param, dist={"o1":0.4, "s1":0.3, "x1":0.2, "z1":0.1})	
 				
 				elif ag=='simpleAg':	
 					a0 = Simple(0, v0)
@@ -812,7 +804,6 @@ def experimentAgents(outiter, initer, int, vocab, prot, agents, hetp=None, hetr=
 				elif ag=='studentrAg':	
 					a0 = StudentR(0, v0)
 					a1 = Agent(1, v1)	
-
 				elif ag=='simplemon':	
 					a0 = SimpleMon(0, v0)
 					a1 = SimpleMon(1, v1)
@@ -825,7 +816,6 @@ def experimentAgents(outiter, initer, int, vocab, prot, agents, hetp=None, hetr=
 				elif ag=='Logical':
 					a0 = Logical(0, v0)
 					a1 = Logical(1, v1)
-
 
 				elif ag in ['simple_alg','reasoner_alg','student_alg','studentr_alg','studentcoop_alg','studentcoopr_alg']:
 					if ag=='simple_alg':

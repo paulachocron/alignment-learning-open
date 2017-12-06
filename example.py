@@ -20,7 +20,7 @@ def main(argv):
 	vocab = 4
 	prot = 4
 	verbosity = 0
-	agents = ['simple', 'reasoner', 'studentcoop']
+	agents = ['simple', 'reasoner']
 	
 	global verbose
 	verbose = 0
@@ -65,7 +65,6 @@ def main(argv):
 
 	resfin, resultsconv =  experimentAgents(1,reps,inters,voc,prot,agents, verbosity= verbose)
 
-
 	tline = [str(x) for x in range(inters)]
 	lines = ['b-','r-','y-','g-','b--','r--','y--','g--','b*-','r*-','y*-','g*-']
 	li = 0
@@ -80,7 +79,6 @@ def main(argv):
 	plt.legend(loc = 'best', fontsize=18)
 	plt.xticks(fontsize=16)
 	plt.yticks(fontsize=16)
-	# plt.ylabel('F-Score', fontsize=19 )
 	plt.xlabel('Interactions', fontsize=19)
 	plt.ylabel('F-Score', fontsize=19)
 	fig = plt.gcf()

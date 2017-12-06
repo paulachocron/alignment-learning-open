@@ -411,9 +411,7 @@ def nusmv2rule(ltlspec):
 	m = re.search('G \(say = (?P<a>.*?) -> \!\( F say = (?P<b>.*?)\)', ltlspec)
 	if m:
 		return(Relation(m.group('a')[:-1], m.group('b')[:-1],'response',0,m.group('a')[-1], m.group('b')[-1]))
-	# m = re.search('\(\!\(say = (?P<b>.*?)\)\) U say = (?P<a>.*?)\)', ltlspec)
 	m = re.search('\(say != (?P<b>.*?) U say = (?P<a>.*?)\)', ltlspec)
-	# m = re.search('\!\(say = (?P<b>.*?)\) U say = (?P<a>.*?)\)', ltlspec)
 
 	if m:
 		return(Relation(m.group('a')[:-1], m.group('b')[:-1],'before',1,m.group('a')[-1], m.group('b')[-1]))
