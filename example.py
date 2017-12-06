@@ -16,11 +16,11 @@ def fscore(seq):
 
 def main(argv):
 	reps = 5
-	inters = 200
+	inters = 50
 	vocab = 4
-	prot = 8
+	prot = 4
 	verbosity = 0
-	agents = ['memory']
+	agents = ['simple', 'reasoner', 'studentcoop']
 	
 	global verbose
 	verbose = 0
@@ -56,22 +56,26 @@ def main(argv):
 	print "Generating Protocols..."
 
 	for i in range(inters):
-		protT = protocol_generator(voc, prot, vocab, 0.1, "{}{}{}".format(vocab,prot,str(i)))
+		protT = protocol_generator(voc, prot, vocab, 0.1, 0, "{}{}{}".format(vocab,prot,str(i)))
 		js = protT.to_json()
 
 	print "Created {} protocols with {} rules each".format(inters, prot)
 
 	print "\n Now starting interactions."
 
-	res =  experimentAgents(reps,inters,voc,prot,agents, verbosity= verbose)
-	f = open('results/res-'+str(vocab)+'-'+str(prot), 'w+')		
-	f.write(json.dumps(res))
-	f.close()
+	resfin, resultsconv =  experimentAgents(1,reps,inters,voc,prot,agents, verbosity= verbose)
 
-	resa0 = res[0][0]
-	resa1 = res[0][1]
+
 	tline = [str(x) for x in range(inters)]
-	ag1, = plt.plot(tline,[(fscore(resa0)[i]+fscore(resa1)[i])/2.0 for i in range(inters)], 'b-')
+	lines = ['b-','r-','y-','g-','b--','r--','y--','g--','b*-','r*-','y*-','g*-']
+	li = 0
+	for ag in agents:
+		# mean = [np.mean(np.array([ex[i] 			for ex in resfin[ag]])) for i in range(len(resfin[ag][0]))]
+		mean = [sum([ex[i] for ex in resfin[ag]])/float(len(resfin[ag])) for i in range(len(resfin[ag][0]))]
+
+		ag1 = plt.plot(tline,mean, lines[li], label=ag)
+		li += 1
+
 	sns.set_style("white")
 	plt.legend(loc = 'best', fontsize=18)
 	plt.xticks(fontsize=16)
@@ -79,7 +83,8 @@ def main(argv):
 	# plt.ylabel('F-Score', fontsize=19 )
 	plt.xlabel('Interactions', fontsize=19)
 	plt.ylabel('F-Score', fontsize=19)
-
+	fig = plt.gcf()
+	fig.subplots_adjust(bottom=0.2)
 	plt.show()
 
 if __name__ == "__main__":
